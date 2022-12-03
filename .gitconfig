@@ -8,7 +8,7 @@
 	name = twopats
 	email = lpatipat@icloud.com
 [core]
-	editor = 'nvim'
+	editor = 'lvim'
 [alias]
 	co = checkout
 	cm = commit
