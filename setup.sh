@@ -16,21 +16,22 @@ done
 }
 
 select_dir
+SESSION='main'
 
-# SESSION='main'
+read -p "target:" X
 
-# tmux new-session -d -s $SESSION -c $DIR
+tmux new-session -d -s $SESSION -c "${DIR}${X}"
 
-# WINDOW=0
-# tmux rename-WINDOW -t $SESSION:$WINDOW 'git'
+WINDOW=0
+tmux rename-WINDOW -t $SESSION:$WINDOW 'git' 
 
-# WINDOW=1
-# tmux new-window -t $session:$WINDOW -n 'run'
+WINDOW=1
+tmux new-window -t $SESSION:$WINDOW -n 'run' -c "${DIR}${X}"
 
-# WINDOW=2
-# tmux new-window -t $session:$WINDOW -n 'vim'
-# tmux send-keys -t $session:$WINDOW 'lvim .' C-m
+WINDOW=2
+tmux new-window -t $SESSION:$WINDOW -n 'vim' -c "${DIR}${X}"
+tmux send-keys -t $SESSION:$WINDOW 'lvim .' C-m
 
 
 
-# tmux attach-session -t $SESSION
+tmux attach-session -t $SESSION
