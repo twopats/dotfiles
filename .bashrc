@@ -8,3 +8,6 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 source ~/.bash_aliases
 
+
+export PATH="$PATH:/home/twopats/.foundry/bin"
+export EDITOR="lvim"

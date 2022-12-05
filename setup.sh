@@ -18,18 +18,27 @@ done
 select_dir
 SESSION='main'
 
-read -p "target:" X
+read -p "target: " TARGET;
 
-tmux new-session -d -s $SESSION -c "${DIR}${X}"
+DIRECTORY=$DIR$TARGET
+if [ -d "$DIRECTORY" ]; then
+  echo "$DIRECTORY does exist."
+else
+  echo "no existing dir, making dir..."
+  mkdir $DIRECTORY
+fi
+
+
+tmux new-session -d -s $SESSION -c "${DIRECTORY}"
 
 WINDOW=0
 tmux rename-WINDOW -t $SESSION:$WINDOW 'git' 
 
 WINDOW=1
-tmux new-window -t $SESSION:$WINDOW -n 'run' -c "${DIR}${X}"
+tmux new-window -t $SESSION:$WINDOW -n 'run' -c "${DIRECTORY}"
 
 WINDOW=2
-tmux new-window -t $SESSION:$WINDOW -n 'vim' -c "${DIR}${X}"
+tmux new-window -t $SESSION:$WINDOW -n 'vim' -c "${DIRECTORY}"
 tmux send-keys -t $SESSION:$WINDOW 'lvim .' C-m
 
 

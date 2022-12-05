@@ -40,7 +40,7 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>p"] = ":lua vim.lsp.buf.format({async = true})<cr>"
-lvim.keys.normal_mode["<leader>tt"] = ":NvimTreeToggle<cr>"
+lvim.keys.normal_mode["<leader>tt"] = ":NvimTreeOpen<cr>"
 lvim.keys.normal_mode["<Tab>"] = ":bp<cr>"
 lvim.keys.normal_mode["<S-Tab>"] = ":bn<cr>"
 lvim.keys.normal_mode["<C-w>"] = ":bd<cr>"
@@ -199,23 +199,23 @@ lvim.lsp.installer.setup.ensure_installed = {
 --     },
 -- }
 
-lvim.plugins = {
-    { "zbirenbaum/copilot.lua",
-        event = { "VimEnter" },
-        config = function()
-            vim.defer_fn(function()
-                require("copilot").setup {
-                    plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
-                }
-            end, 100)
-        end,
-    },
+-- lvim.plugins = {
+--     { "zbirenbaum/copilot.lua",
+--         event = { "VimEnter" },
+--         config = function()
+--             vim.defer_fn(function()
+--                 require("copilot").setup {
+--                     plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+--                 }
+--             end, 100)
+--         end,
+--     },
 
-    { "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua", "nvim-cmp" },
-    },
-    ...
-}
+--     { "zbirenbaum/copilot-cmp",
+--         after = { "copilot.lua", "nvim-cmp" },
+--     },
+--     ...
+-- }
 
 -- Can not be placed into the config method of the plugins.
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
