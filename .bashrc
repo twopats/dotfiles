@@ -9,5 +9,4 @@ PS1='[\u@\h \W]\$ '
 source ~/.bash_aliases
 
 
-export PATH="$PATH:/home/twopats/.foundry/bin"
-export EDITOR="lvim"
+export PATH="$PATH:/home/sdpat/.foundry/bin"
