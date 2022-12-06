@@ -4,14 +4,14 @@
 DIR=~/code/
 
 function select_dir() {
-declare -a arr
+# declare -a arr
 count=1
 for entry in "$DIR"*
 do
     echo "$count) $entry"
     let "count++"
     arr=(${arr[@]} $entry)
-echo $arr
+# echo $arr
 done
 }
 
