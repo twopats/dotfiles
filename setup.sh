@@ -24,8 +24,8 @@ WINDOW=1
 tmux new-window -t $SESSION:$WINDOW -n 'run' -c "${DIRECTORY}"
 
 WINDOW=2
-tmux new-window -t $SESSION:$WINDOW -n 'vim' -c "${DIRECTORY}"
-tmux send-keys -t $SESSION:$WINDOW 'lvim .' C-m
+tmux new-window -t $SESSION:$WINDOW -n 'lvim' -c "${DIRECTORY}"
+tmux send-keys -t $SESSION:$WINDOW 'lvim' C-m
 
 
 
