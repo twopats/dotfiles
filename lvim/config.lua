@@ -40,7 +40,7 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<leader>p"] = ":lua vim.lsp.buf.format({async = true})<cr>"
-lvim.keys.normal_mode["<leader>tt"] = ":NvimTreeToggle<cr>"
+lvim.keys.normal_mode["<leader>tt"] = ":NvimTreeOpen<cr>"
 lvim.keys.normal_mode["<Tab>"] = ":bp<cr>"
 lvim.keys.normal_mode["<S-Tab>"] = ":bn<cr>"
 lvim.keys.normal_mode["<C-w>"] = ":bd<cr>"
@@ -121,7 +121,8 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.lsp.installer.setup.ensure_installed = {
     "sumneko_lua",
     "jsonls",
-    "solc"
+    "solc",
+    "emmet_ls"
 }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
@@ -137,9 +138,9 @@ lvim.lsp.installer.setup.ensure_installed = {
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pyright", opts)
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "emmet_ls" })
+local opts = {} -- check the lspconfig documentation for a list of all possible options
+require("lvim.lsp.manager").setup("emmet_ls", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
